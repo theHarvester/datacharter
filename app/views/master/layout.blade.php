@@ -3,25 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Data Charter</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,100italic,400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
     <script src="//code.jquery.com/jquery.js"></script>
     {{HTML::style('css/normalize.css')}}
     {{HTML::style('css/datepicker.css')}}
-    {{--HTML::style('css/style.css')--}}
-    <link rel="stylesheet/less" type="text/css" href="/rcs/public/css/page.css">
-    <link rel="stylesheet/less" type="text/css" href="http://localhost/rcs/public/css/mixins.less">
-    <link rel="stylesheet/less" type="text/css" href="/rcs/public/css/styles.less">
+    <link rel="stylesheet/less" type="text/css" href="{{ asset('css/page.css') }}">
+    <link rel="stylesheet/less" type="text/css" href="{{ asset('css/mixins.less') }}">
+    <link rel="stylesheet/less" type="text/css" href="{{ asset('css/styles.less') }}">
     {{HTML::style('css/clear.css')}}
     {{HTML::script('js/less-1.4.1.min.js')}}
     {{HTML::script('js/jquery-ui-1.10.3.custom.min.js')}}
     {{HTML::script('js/functions.js')}}
     {{HTML::script('js/Highcharts-3.0.6/js/highcharts.js')}}
-    {{--HTML::script('js/jonthornton-jquery-timepicker-21dbaea/lib/datepair.js')--}}
-    {{--HTML::script('js/datetime.js')--}}
-
 </head>
 <body>
     <div id="menu-show-btn">

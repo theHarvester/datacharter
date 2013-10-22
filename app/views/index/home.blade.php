@@ -12,7 +12,7 @@
         <div id="chart1">
 
         </div>
-        <!-- <div class="pure-u-1-2">
+        <div class="pure-u-1-2">
             <div class="l-box">
                 <h3 class="information-head">24/7 customer support</h3>
                 <p>
@@ -30,7 +30,7 @@
                 </p>
             </div>
         </div>
-        <div class="pure-u-1-2">
+<!--         <div class="pure-u-1-2">
             <div class="l-box">
                 <h3 class="information-head">Artist to artist sharing</h3>
                 <p>

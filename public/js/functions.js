@@ -30,7 +30,7 @@ $( document ).ready(function() {
     $( "#datepicker" ).datepicker();
 
     console.log("yo");
-    $.getScript( "/rcs/public/highcharts/1", function() {
+    $.getScript( "/datacharter/public/highcharts/1", function() {
         console.log('here');
     });
 });

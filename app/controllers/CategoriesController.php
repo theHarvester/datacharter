@@ -9,20 +9,9 @@ class CategoriesController extends BaseController {
 	 */
 	public function index()
 	{
-		$success = 'true';
-		
-		
-		$values = array();
-		// echo '<pre>';
-		foreach (Category::all() as $category) {
-			// var_dump(, $category->name);
-			$values[] = ['id' => $category->id, 'name' => $category->name];
-		}
-		// echo '</pre>';
-
-		return Response::json(array('success' => $success, 'result' => $values));
-        // return View::make('categories.index')
-        // 	->with('categories',Category::all());
+		// var_dump(Category::where('user_id', '=', Auth::user()->id));
+        return View::make('categories.index')
+        	->with('categories',Category::where('user_id', '=', Auth::user()->id)->get());
 	}
 
 	/**
@@ -32,7 +21,8 @@ class CategoriesController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('categories.create');
+        return View::make('categories.create')
+        	->with('categories',Category::where('user_id', '=', Auth::user()->id)->get());
 	}
 
 	/**
