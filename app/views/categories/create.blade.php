@@ -11,7 +11,7 @@
     <div class="information">
         <div class="pure-u-1-2">
             <div class="l-box">
-                <h3 class="information-head">Create Data</h3>
+                <h3 class="information-head">Create Category</h3>
     
                 {{ Form::open(array('url' => 'categories', 'method' => 'POST')) }}
                 <p>
@@ -40,11 +40,11 @@
         <div class="pure-u-1-2">
             <div class="l-box">
                 <h3 class="information-head">Categories</h3>
-        <ul>
-            @foreach($categories as $category)
-                <li>{{ $category->name }} : {{ $category->user_id }}</li>
-            @endforeach
-        </ul>
+                <ul>
+                    @foreach($categories as $category)
+                        <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>

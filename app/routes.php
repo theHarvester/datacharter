@@ -94,4 +94,4 @@ Route::resource('categories', 'CategoriesController');
 Route::resource('data', 'DataController');
 Route::get('highcharts/{chart_id}', 'HighChartsController@buildHighCharts')->before('auth');
 Route::resource('charts', 'ChartsController');
-Route::resource('chart_categories', 'Chart_categoriesController');
+// Route::resource('chart_categories', 'Chart_categoriesController');

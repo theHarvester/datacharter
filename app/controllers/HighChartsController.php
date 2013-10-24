@@ -1,6 +1,10 @@
 <?php
 
 class HighChartsController extends BaseController {
+	function __construct() {
+        $this->beforeFilter('auth');
+    }
+
 	public function buildHighCharts($chartId){
 	    $chartData = DB::table('data')
 	    	->join('categories', 'data.category_id', '=', 'categories.id')

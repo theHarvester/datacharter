@@ -1,6 +1,9 @@
 <?php
 
 class DataController extends BaseController {
+	function __construct() {
+        $this->beforeFilter('auth');
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -56,9 +59,9 @@ class DataController extends BaseController {
                     'timestamp' => $date
             		));
             
-            return Redirect::to('/data/create')->with('message', 'Data Created');
+            return Redirect::to('/categories/'.Input::get()['category'])->with('message', 'Data Created');
 		}
-        return Redirect::to('/data/create')
+        return Redirect::to('/categories/'.Input::get()['category'])
         	->withInput()
         	->withErrors($validator);
         

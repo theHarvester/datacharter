@@ -1,6 +1,9 @@
 <?php
 
 class CategoriesController extends BaseController {
+	function __construct() {
+        $this->beforeFilter('auth');
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -59,7 +62,11 @@ class CategoriesController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('categories.show');
+
+        return View::make('categories.show')
+        	->with('category',Category::where('user_id', '=', Auth::user()->id)
+        		->where('id', '=', $id)
+        		->first());
 	}
 
 	/**
