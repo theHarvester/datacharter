@@ -5,7 +5,7 @@
 
 
 $(function () {
-    $('#chart1').highcharts({
+    $('#chart{{ $chartId }}').highcharts({
         chart: {
             type: 'spline'
         },
@@ -19,12 +19,34 @@ $(function () {
                 year: '%b'
             }
         },
-        yAxis: {
-            title: {
-                text: 'Shit son you need a label'
-            },
-            min: 0
-        },
+        yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}°C',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: 'Temperature',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: 'Rainfall',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    format: '{value} mm',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                opposite: true
+            }],
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
@@ -33,6 +55,7 @@ $(function () {
         },
         
         series: [
+        <? $j=1; $countLabels = count($categoryLabels); ?>
         @foreach($categoryLabels as $key => $value)
         {
             name: '{{ $key }}',
@@ -46,10 +69,29 @@ $(function () {
             		<? $i++; ?>
             	@endforeach
             ]
-        }
+        }{{ ($j++ < $countLabels)? "," : " "; }}
         @endforeach
         ]
     });
 });
+
+{{--
+yAxis: {
+            labels: {
+                formatter: function() {
+                    return this.value +' Kg';
+                },
+                style: {
+                    color: '#89A54E'
+                }
+            },
+            title: {
+                text: 'Weight'
+            },
+            min: 0,
+
+        },
+
+    --}}
 
 //</pre>

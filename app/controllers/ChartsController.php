@@ -12,20 +12,22 @@ class ChartsController extends BaseController {
 	 */
 	public function index()
 	{
-		$success = 'true';
-	    $chart = Chart::where('user_id', '=', Auth::user()->id)
-	    	->get();
+		return View::make('charts.index')
+        	->with('categories', Category::where('user_id', '=', Auth::user()->id)->get());
+		// $success = 'true';
+	 //    $chart = Chart::where('user_id', '=', Auth::user()->id)
+	 //    	->get();
 	    
-	    $values = array();
-	    if($chart->isEmpty()){
-	    	$success = 'false';
-	    	$values[] = ['error_code' => '1', 'description' => 'Results are empty'];
-	    } else {
-	    	foreach ($chart as $key => $value) {
-		        $values[] = ['ts' => $value->id, 'name' => $value->name];
-		    }
-	    }
-	    return Response::json(array('success' => $success, 'result' => $values));
+	 //    $values = array();
+	 //    if($chart->isEmpty()){
+	 //    	$success = 'false';
+	 //    	$values[] = ['error_code' => '1', 'description' => 'Results are empty'];
+	 //    } else {
+	 //    	foreach ($chart as $key => $value) {
+		//         $values[] = ['ts' => $value->id, 'name' => $value->name];
+		//     }
+	 //    }
+	 //    return Response::json(array('success' => $success, 'result' => $values));
 	}
 
 	/**

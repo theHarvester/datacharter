@@ -1,9 +1,9 @@
 <?php
 
 class DataController extends BaseController {
-	function __construct() {
-        $this->beforeFilter('auth');
-    }
+	// function __construct() {
+ //        $this->beforeFilter('auth');
+ //    }
 
 	/**
 	 * Display a listing of the resource.
@@ -86,7 +86,9 @@ class DataController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('data.edit');
+		
+
+        // return View::make('data.edit');
 	}
 
 	/**
@@ -97,7 +99,13 @@ class DataController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$data = Datum::find($id);
+		if(isset(Input::all()['data']))
+			$data->data = Input::all()['data'];
+		if(isset(Input::all()['timestamp']))
+			$data->timestamp = Input::all()['timestamp'];
+		$data->save();
+
 	}
 
 	/**
@@ -108,7 +116,7 @@ class DataController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Datum::destroy($id);
 	}
 
 }

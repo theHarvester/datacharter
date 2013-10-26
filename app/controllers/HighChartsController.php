@@ -9,9 +9,9 @@ class HighChartsController extends BaseController {
 	    $chartData = DB::table('data')
 	    	->join('categories', 'data.category_id', '=', 'categories.id')
 	    	->join('chart_categories', 'categories.id', '=', 'chart_categories.category_id')
-	    	->join('charts', 'chart_categories.id', '=', 'charts.id')
+	    	->join('charts', 'chart_categories.chart_id', '=', 'charts.id')
 	    	->where('charts.id', '=', $chartId)
-	    	->where('data.timestamp', '>', date('Y-m-d H:i:s', strtotime('-30 days')))
+	    	->where('data.timestamp', '>', date('Y-m-d H:i:s', strtotime('-360 days')))
 	    	->orderBy('timestamp', 'asc')
 	    	->get();
 
@@ -26,7 +26,8 @@ class HighChartsController extends BaseController {
 	    	return View::make('highcharts.ajax')
 	    		->with('chartData', $chartData)
 	    		->with('categoryLabels', $categoryLabels)
-	    		->with('title', $title);
+	    		->with('title', $title)
+	    		->with('chartId', $chartId);
 	    }
 	}
 

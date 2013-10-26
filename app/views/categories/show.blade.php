@@ -46,13 +46,26 @@
         <div class="pure-u-1-2">
             <div class="l-box">
                 <h3 class="information-head">Data</h3>
-                <ul>
-                    {{--
-                    @foreach($categories as $category)
-                        <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                <ul class="edit-list">
+                    <? $i = 0; ?>
+                    @foreach($data as $value)
+                        <li class="{{ ($i++ % 2 == 0)?'even':'odd'; }}">
+                            <div class="edit-me" data-id="{{ $value->id }}" data-type="data" alt="Click to edit">
+                                {{ $value->data }}
+                            </div>
+                            <div class="edit-me" data-id="{{ $value->id }}" data-type="timestamp">
+                                {{ $value->timestamp }}
+                            </div>
+                        </li>
                     @endforeach
-                    --}}
                 </ul>
+                <div id="edit-data">
+                    <input type="text" size="43"></input>
+                    <br />
+                    <button id="edit-save">Save</button>
+                    <button id="edit-cancel">Cancel</button>
+                    <button id="edit-delete">Delete</button>
+                </div>
             </div>
         </div>
     </div>

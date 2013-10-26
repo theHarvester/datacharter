@@ -39,10 +39,10 @@
                 {{link_to_action('DataController@create', 'Add Data', $parameters = array(), $attributes = array())}}
                 </li>
                 <li>
-                {{link_to_action('CategoriesController@create', 'Create Category', $parameters = array(), $attributes = array())}}
+                {{link_to_action('CategoriesController@create', 'Categories', $parameters = array(), $attributes = array())}}
                 </li>
                 <li>
-                {{link_to_action('ChartsController@create', 'Create Chart', $parameters = array(), $attributes = array())}}
+                {{link_to_action('ChartsController@create', 'Charts', $parameters = array(), $attributes = array())}}
                 </li>
                 <li>
                 {{link_to_route('logout', 'Logout', $parameters = array(), $attributes = array())}}

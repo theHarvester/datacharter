@@ -5,7 +5,19 @@
 */
 
 Route::get('/', array('as' => 'home', function () {
-	return View::make('index.home');
+    if(Auth::check()){
+        $charts = Chart::where('user_id', '=', Auth::user()->id)
+            ->get();
+        // foreach ($charts as $chart) {
+        //     dd($chart->id);
+        // }
+        
+        return View::make('index.home')
+            ->with('charts', $charts);
+    } else {
+        return View::make('index.home');
+
+    }
 }));
 
 /**

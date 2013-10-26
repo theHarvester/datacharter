@@ -12,7 +12,6 @@ class CategoriesController extends BaseController {
 	 */
 	public function index()
 	{
-		// var_dump(Category::where('user_id', '=', Auth::user()->id));
         return View::make('categories.index')
         	->with('categories',Category::where('user_id', '=', Auth::user()->id)->get());
 	}
@@ -62,11 +61,13 @@ class CategoriesController extends BaseController {
 	 */
 	public function show($id)
 	{
+		$data = Datum::where('category_id', '=', $id)->get();
 
         return View::make('categories.show')
         	->with('category',Category::where('user_id', '=', Auth::user()->id)
         		->where('id', '=', $id)
-        		->first());
+        		->first())
+        	->with('data', $data);
 	}
 
 	/**

@@ -1,6 +1,7 @@
 @extends('master.layout')
 
 @section('body')
+{{HTML::script('css/data-update.js')}}
 <div class="banner">
     <h1 class="banner-head">
         DataCharter
@@ -42,7 +43,9 @@
                 <h3 class="information-head">Categories</h3>
                 <ul>
                     @foreach($categories as $category)
-                        <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                        <li>
+                            <a href="{{ $category->id }}">{{ $category->name }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>

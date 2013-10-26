@@ -1,3 +1,4 @@
+var lastClicked;
 $( document ).ready(function() {
 	$('#menu-show-btn').click(function() {
         $('#menu-container').toggle("slide", {
@@ -29,9 +30,9 @@ $( document ).ready(function() {
 
     $( "#datepicker" ).datepicker();
 
-    console.log("yo");
-    $.getScript( "/datacharter/public/highcharts/1", function() {
-        console.log('here');
+    $('.high-chart').each(function (){
+        var url = "/datacharter/public/highcharts/"+$(this).data('id');
+        $.getScript( url, function() {});
     });
 });
 
