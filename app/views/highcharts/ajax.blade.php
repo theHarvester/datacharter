@@ -1,7 +1,26 @@
 //<pre>
 
-{{--var_dump($categoryLabels)--}}
+{{--
+    var_dump($chartData[0]->unit);
+    die();
+--}}
 
+var colors = new Array();
+colors[0] = "#d97373";
+colors[1] = "#63b9ff";
+colors[2] = "#7290db";
+colors[3] = "#73d97f";
+colors[4] = "#dfb506";
+colors[5] = "#89E894";
+colors[6] = "#CCCCCC";
+colors[7] = "#003366";
+colors[8] = "#3399CC";
+colors[9] = "#CDB99C";
+colors[10] = "#330000";
+colors[11] = "#FFD800";
+colors[12] = "#587058";
+colors[13] = "#587498";
+colors[14] = "#E86850";
 
 
 $(function () {
@@ -19,34 +38,20 @@ $(function () {
                 year: '%b'
             }
         },
-        yAxis: [{ // Primary yAxis
+        yAxis: { // Primary yAxis
                 labels: {
-                    format: '{value}°C',
+                    format: '{value} {{$chartData[0]->unit}}',
                     style: {
-                        color: '#89A54E'
+                        color: '#222'
                     }
                 },
                 title: {
-                    text: 'Temperature',
+                    text: '{{$chartData[0]->axis_label}}',
                     style: {
-                        color: '#89A54E'
+                        color: '#222'
                     }
                 }
-            }, { // Secondary yAxis
-                title: {
-                    text: 'Rainfall',
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
-                labels: {
-                    format: '{value} mm',
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
-                opposite: true
-            }],
+            },
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
@@ -68,7 +73,8 @@ $(function () {
             		@endif
             		<? $i++; ?>
             	@endforeach
-            ]
+            ],
+            color: colors[{{rand(0,14)}}]
         }{{ ($j++ < $countLabels)? "," : " "; }}
         @endforeach
         ]
@@ -76,6 +82,9 @@ $(function () {
 });
 
 {{--
+    #FFA963 orange
+    #63b9ff blue
+
 yAxis: {
             labels: {
                 formatter: function() {

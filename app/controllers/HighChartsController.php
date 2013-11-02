@@ -23,6 +23,7 @@ class HighChartsController extends BaseController {
 	    		$categoryLabels[$value->label][] = [$value->data,$value->timestamp];
 	    		$title = $value->name;
 	    	}
+	    	
 	    	return View::make('highcharts.ajax')
 	    		->with('chartData', $chartData)
 	    		->with('categoryLabels', $categoryLabels)

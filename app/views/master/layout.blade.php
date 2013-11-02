@@ -17,6 +17,7 @@
     {{HTML::script('js/jquery-ui-1.10.3.custom.min.js')}}
     {{HTML::script('js/functions.js')}}
     {{HTML::script('js/Highcharts-3.0.6/js/highcharts.js')}}
+    
 </head>
 <body>
     <div id="menu-show-btn">

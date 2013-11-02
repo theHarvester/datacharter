@@ -12,6 +12,8 @@ class ChartsTableSeeder extends Seeder {
 		$charts = array(
 			[	'name' => 'My First Chart',
                 'user_id' => 1,
+                'unit' => 'Kg',
+                'axis_label' => 'Weight',
                 'created_at' => $now,
                 'updated_at' => $now
             ]

@@ -14,20 +14,6 @@ class ChartsController extends BaseController {
 	{
 		return View::make('charts.index')
         	->with('categories', Category::where('user_id', '=', Auth::user()->id)->get());
-		// $success = 'true';
-	 //    $chart = Chart::where('user_id', '=', Auth::user()->id)
-	 //    	->get();
-	    
-	 //    $values = array();
-	 //    if($chart->isEmpty()){
-	 //    	$success = 'false';
-	 //    	$values[] = ['error_code' => '1', 'description' => 'Results are empty'];
-	 //    } else {
-	 //    	foreach ($chart as $key => $value) {
-		//         $values[] = ['ts' => $value->id, 'name' => $value->name];
-		//     }
-	 //    }
-	 //    return Response::json(array('success' => $success, 'result' => $values));
 	}
 
 	/**
@@ -38,7 +24,8 @@ class ChartsController extends BaseController {
 	public function create()
 	{
         return View::make('charts.create')
-        	->with('categories', Category::where('user_id', '=', Auth::user()->id)->get());
+        	->with('categories', Category::where('user_id', '=', Auth::user()->id)->get())
+        	->with('charts', Chart::where('user_id', '=', Auth::user()->id)->get());
 	}
 
 	/**
@@ -58,7 +45,9 @@ class ChartsController extends BaseController {
 
         	$chart_id = Chart::create(array(
                     'name' => Input::get('name'),
-                    'user_id' => Auth::user()->id
+                    'user_id' => Auth::user()->id,
+                    'axis_label' => Input::get('axis_label'),
+                    'unit' => Input::get('unit_label')
             		))->id;
             
         	foreach (Input::All()["category"] as $category_id) {
@@ -106,7 +95,14 @@ class ChartsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$chart = Chart::find($id);
+		if(isset(Input::all()['name']))
+			$chart->name = Input::all()['name'];
+		if(isset(Input::all()['unit']))
+			$chart->unit = Input::all()['unit'];
+		if(isset(Input::all()['axis_label']))
+			$chart->axis_label = Input::all()['axis_label'];
+		$chart->save();
 	}
 
 	/**

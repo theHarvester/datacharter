@@ -1,6 +1,7 @@
 @extends('master.layout')
 
 @section('body')
+{{HTML::script('js/chart-update.js')}}
 <div class="banner">
     <h1 class="banner-head">
         DataCharter
@@ -9,40 +10,87 @@
 
 <div class="l-content">
     <div class="information">
-    	<h3 class="information-head">Create Chart</h3>
-    
-    {{ Form::open(array('url' => 'charts', 'method' => 'POST')) }}
-    <p>
-        @if ($errors->any())
+        <div class="pure-u-1-2">
+        	<h3 class="information-head">Create Chart</h3>
+        
+            {{ Form::open(array('url' => 'charts', 'method' => 'POST')) }}
+            <p>
+                @if ($errors->any())
+                    <span class="pure-u-1-4">
+                    {{ implode('', $errors->all('<div class="alert alert-danger"><strong>Error, </strong>:message</div>')) }}
+                    </span>
+                @endif
+            </p>
+            <p>
             <span class="pure-u-1-4">
-            {{ implode('', $errors->all('<div class="alert alert-danger"><strong>Error, </strong>:message</div>')) }}
+                {{ Form::label('name', 'Title') }}
             </span>
-        @endif
-    </p>
-    <p>
-    <span class="pure-u-1-4">
-        {{ Form::label('name', 'Title') }}
-    </span>
-    
-    {{ Form::text('name', Input::old('name')) }}
-    
-    </p>
-    <p>
-    	
-    <span class="pure-u-1-4">
-		{{ Form::label('categories', 'Categories') }}
-    </span>
-	    @foreach($categories as $category)
-	    	{{ Form::label('category', $category->name) }}
-    	 	{{ Form::checkbox('category[]', $category->id)  }}	
-        @endforeach
-    
-    </p>
-    <p>
-        <span class="btn_submit">{{ Form::submit('Create') }}</span>
-    </p>
-    
-    {{ Form::close() }}
+            
+            {{ Form::text('name', Input::old('name')) }}
+            
+            </p>
+            <p>
+            	
+            <span class="pure-u-1-4">
+        		{{ Form::label('categories', 'Categories') }}
+            </span>
+        	    @foreach($categories as $category)
+                <p>
+            	 	{{ Form::checkbox('category[]', $category->id)  }}	
+                    {{ Form::label('category', $category->name, array('class' => 'checkboxLabel')) }}
+                 </p>
+                @endforeach
+            
+            </p>
+            <p>
+            <span class="pure-u-1-4">
+                {{ Form::label('axis_label', 'Axis Label') }}
+            </span>
+            
+            {{ Form::text('axis_label', Input::old('axis_label')) }}
+            
+            </p>
+            <p>
+            <span class="pure-u-1-4">
+                {{ Form::label('unit_label', 'Unit Label') }}
+            </span>
+            
+            {{ Form::text('unit_label', Input::old('unit_label')) }}
+            
+            </p>
+            <p>
+                <span class="btn_submit">{{ Form::submit('Create') }}</span>
+            </p>
+            
+            {{ Form::close() }}
+        </div>
+        <div class="pure-u-1-2">
+            <h3 class="information-head">Edit Charts</h3>
+            <ul class="edit-list">
+                <? $i = 0; ?>
+                @foreach($charts as $chart)
+                    <li class="{{ ($i++ % 2 == 0)?'even':'odd'; }}">
+                        <div class="edit-me" data-id="{{ $chart->id }}" data-type="name" alt="Click to edit">
+                            {{ $chart->name }}
+                        </div>
+                        <div class="edit-me" data-id="{{ $chart->id }}" data-type="unit">
+                            {{ $chart->unit }}
+                        </div>
+                        <div class="edit-me" data-id="{{ $chart->id }}" data-type="axis_label">
+                            {{ $chart->axis_label }}
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+            <div id="edit-charts">
+                <input type="text" size="43"></input>
+                <br />
+                <button id="edit-save">Save</button>
+                <button id="edit-cancel">Cancel</button>
+                <button id="edit-delete">Delete</button>
+            </div>
+        </div>
     </div>
+
 </div>
 @stop

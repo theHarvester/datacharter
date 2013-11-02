@@ -1,6 +1,7 @@
 @extends('master.layout')
 
 @section('body')
+{{HTML::script('js/data-update.js')}}
 <div class="banner">
     <h1 class="banner-head">
         DataCharter

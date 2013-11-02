@@ -105,7 +105,6 @@ class DataController extends BaseController {
 		if(isset(Input::all()['timestamp']))
 			$data->timestamp = Input::all()['timestamp'];
 		$data->save();
-
 	}
 
 	/**

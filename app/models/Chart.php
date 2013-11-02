@@ -5,8 +5,4 @@ class Chart extends Eloquent {
 
 	public static $rules = array();
 
-	// public function owner()
- //    {
- //        return $this->belongs_to('User', 'user_id');
- //    }
 }
