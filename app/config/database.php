@@ -27,7 +27,7 @@ return array(
 	*/
 
 	'default' => 'mysql',
-	// 'default' => 'sqlite',
+//	 'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -56,9 +56,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'data_charter',
+			'database'  => 'datacharter',
 			'username'  => 'laravel',
-			'password'  => '',
+			'password'  => 'laravel',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
