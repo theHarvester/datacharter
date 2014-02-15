@@ -31,7 +31,7 @@ $( document ).ready(function() {
     $( "#datepicker" ).datepicker();
 
     $('.high-chart').each(function (){
-        var url = "/datacharter/public/highcharts/"+$(this).data('id');
+        var url = window.urlPathPrefix + "/highcharts/"+$(this).data('id');
         $.getScript( url, function() {});
     });
 });
