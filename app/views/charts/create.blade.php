@@ -36,8 +36,9 @@
             </span>
         	    @foreach($categories as $category)
                 <p>
-            	 	{{ Form::checkbox('category[]', $category->id)  }}	
-                    {{ Form::label('category', $category->name, array('class' => 'checkboxLabel')) }}
+                    <? $cId = 'category'.$category->id; ?>
+            	 	{{ Form::checkbox('category[]', $category->id, false, array('id' => $cId))  }}
+                    {{ Form::label('category', $category->name, array('class' => 'checkboxLabel', 'for' => $cId)) }}
                  </p>
                 @endforeach
             
