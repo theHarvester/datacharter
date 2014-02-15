@@ -21,11 +21,9 @@ Route::get('/', array('as' => 'home', function () {
     Login
 */
 
-Route::get('account/login', 'AccountController@index')->before('guest');
-
-// Route::get('account/login', array('as' => 'login', function () {
-//     return View::make('account.login');
-// }))->before('guest');
+Route::get('account/login', array('as' => 'login', function () {
+    return View::make('account.login');
+}))->before('guest');
 
 Route::post('account/login', function () {
 	$user = array(
