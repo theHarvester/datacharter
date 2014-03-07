@@ -18,11 +18,13 @@
     {{HTML::script('js/functions.js')}}
     {{HTML::script('js/Highcharts-3.0.6/js/highcharts.js')}}
     <script type="text/javascript">
+    //<!--
         var urlPathPrefix = "{{url('/', $parameters = array(), $secure = null)}}";
+    // -->
     </script>
 </head>
 <body>
-
+    <?var_dump(url('/', $parameters = array(), $secure = null))?>
     <div id="menu-show-btn">
         <div class="menu-icon-bar top white">&nbsp;</div>
         <div class="menu-icon-bar middle white">&nbsp;</div>

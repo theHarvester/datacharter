@@ -16,7 +16,7 @@ $(document).ready(function(){
     $('#edit-save').click(function(){
         $.ajax({
             type: "PUT",
-            url: "http://localhost/datacharter/public/data/"+$("#edit-data").data("id"),
+            url: urlPathPrefix + "/data/" + $("#edit-data").data("id"),
             data: { data: $("#edit-data input").val() }
         }).done(function( msg ) {
             lastClicked.text($("#edit-data input").val());
@@ -27,7 +27,7 @@ $(document).ready(function(){
         alert('here');
         $.ajax({
             type: "DELETE",
-            url: "http://localhost/datacharter/public/data/"+$("#edit-data").data("id")
+            url: urlPathPrefix + "/data/"+$("#edit-data").data("id")
         }).done(function( msg ) {
             lastClicked.parent().text('Deleted');
             $("#edit-data").fadeOut(200);
