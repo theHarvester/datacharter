@@ -98,9 +98,8 @@ Route::get('account/edit', array('as' => 'account', function () {
 // Auth::login($user);
 // }));
 
-// Route::get('categories/{category_id}', 'CategoriesController@dataByCategoryId');
 Route::resource('categories', 'CategoriesController');
 Route::resource('data', 'DataController');
 Route::get('highcharts/{chart_id}', 'HighChartsController@buildHighCharts')->before('auth');
 Route::resource('charts', 'ChartsController');
-// Route::resource('chart_categories', 'Chart_categoriesController');
+
