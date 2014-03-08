@@ -36,7 +36,7 @@ class ChartsController extends BaseController {
 	public function store()
 	{
 		$rules = array(
-            'name'                  => 'required|min:2|max:80|alpha_dash'	
+            'name'                  => 'required|min:2|max:80'	
         );
 
         $validator = Validator::make(Input::all(), $rules);

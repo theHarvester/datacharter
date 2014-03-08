@@ -24,7 +24,6 @@
     </script>
 </head>
 <body>
-    <?var_dump(url('/', $parameters = array(), $secure = null))?>
     <div id="menu-show-btn">
         <div class="menu-icon-bar top white">&nbsp;</div>
         <div class="menu-icon-bar middle white">&nbsp;</div>
