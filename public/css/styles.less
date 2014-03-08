@@ -7,6 +7,38 @@
 .lighten1 { background-color:@lighten1; }
 .lighten2 { background-color:@lighten2; }
 
+/* Quick Add Buttons */
+.quickCreate {
+    background-color:@complement1;
+    color:white;
+    font-size: 2em;
+    font-weight: 100;
+    padding: 0.5em 1em;
+    display:none;
+    cursor:pointer;
+}
+
+#quickCreateToggle {
+    font-size: 4em;
+    color:@base;
+    font-weight: 100;
+    transition: text-shadow 0.2s ease;
+    text-shadow: 0;
+}
+
+#quickCreateToggle:hover {
+    transition: text-shadow 0.2s ease;
+    text-shadow: 0 0 0.4em @base;
+    cursor:pointer;
+}
+
+.quickForm {
+    background-color:white;
+    z-index:500;
+    margin-top:00px;
+    display:none;
+}
+
 /* Buttons */
 
 .btn_submit input {

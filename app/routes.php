@@ -9,8 +9,14 @@ Route::get('/', array('as' => 'home', function () {
         $charts = Chart::where('user_id', '=', Auth::user()->id)
             ->get();
 
+        $categories = Category::where('user_id', '=', Auth::user()->id)->get();
+        $categorySelect = array();
+        foreach($categories as $category)
+            $categorySelect[$category->id] = $category->name;
+
         return View::make('index.home')
-            ->with('charts', $charts);
+            ->with('charts', $charts)
+            ->with('categorySelect', $categorySelect);
     } else {
         return View::make('index.home');
 

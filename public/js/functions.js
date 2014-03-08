@@ -34,6 +34,39 @@ $( document ).ready(function() {
         var url = window.urlPathPrefix + "/highcharts/"+$(this).data('id');
         $.getScript( url, function() {});
     });
+
+    // Toggle qick create buttons on home page
+    $('#quickCreateToggle').click(function(){
+        $('.quickForm').slideUp();
+        if($('.quickCreate').is(":hidden")){
+            $('.quickCreate').slideDown();
+        } else {
+            $('.quickCreate').slideUp();
+        }
+    });
+
+    $('.quickCreate').click(function(){
+        $('.quickForm').slideUp();
+
+        if($(this).data('type') == 'data' && $('#quickDataForm').is(":hidden")){
+            $('#quickDataForm').slideDown();
+        }
+    });
+
+    $(".quickForm form").submit(function (e) {
+        e.preventDefault();
+
+        url = $(this).attr('action');
+        data = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(){
+                location.reload();
+            }
+        });
+    });
 });
 
 function sideMenuScroll(){
