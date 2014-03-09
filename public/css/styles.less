@@ -67,7 +67,7 @@ form input.checkbox {
 
 /* Banners */
 
-.banner {
+#banner {
     background-color:@base;
     text-align: center;
     background-size: cover;
@@ -77,13 +77,25 @@ form input.checkbox {
     display: table;
 }
 
-.banner-head {
-    display: table-cell;
-    vertical-align: middle;
+#banner-head {
+    float:left;
     margin-bottom: 0;
     font-size: 4em;
     color: white;
     font-weight:100;
+}
+
+#banner-svg {
+    float:left;
+    margin-bottom: 0;
+    width:180px;
+}
+
+#banner-container {
+    margin-left:auto;
+    margin-right:auto;
+    width:600px;
+    margin-top:100px;
 }
 
 .information {

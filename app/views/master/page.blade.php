@@ -2,12 +2,6 @@
 
 @section('body')
 
-<div class="banner">
-    <h1 class="banner-head">
-        DataCharter
-    </h1>
-</div>
-
 <div class="l-content">
     <div class="information pure-g-r">
     	@if(Session::has('flash_error'))
@@ -19,7 +13,4 @@
         @yield('content')
     </div>
 </div>
-
-
-
 @stop

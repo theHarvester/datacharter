@@ -56,6 +56,28 @@
             @endif
         </ul>
     </div>
+    <div id="banner">
+        <div id="banner-container">
+            <div id="banner-svg">
+                <svg width="180" height="140" xmlns="http://www.w3.org/2000/svg">
+                 <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+                 <g>
+                  <title>Layer 1</title>
+                  <ellipse fill="#ffffff" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="28" cy="96" id="svg_2" rx="13" ry="13"/>
+                  <ellipse fill="#ffffff" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="78" cy="56" rx="13" ry="13" id="svg_7"/>
+                  <line fill="none" stroke="#ffffff" stroke-width="15" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="29" y1="97" x2="75" y2="58" id="svg_6"/>
+                  <ellipse fill="#ffffff" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="109" cy="106" rx="13" ry="13" id="svg_9"/>
+                  <ellipse fill="#ffffff" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="154" cy="26" rx="13" ry="13" id="svg_10"/>
+                  <line fill="none" stroke-width="15" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="78" y1="53" x2="113" y2="112" id="svg_13" stroke="#ffffff"/>
+                  <line fill="none" stroke-width="15" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="154" y1="28" x2="107" y2="109" id="svg_14" stroke="#ffffff"/>
+                 </g>
+                </svg>
+            </div>
+            <h1 id="banner-head">
+                MyDataCharter
+            </h1>
+        </div>
+    </div>
     @yield('body')
 </body>
 </html>

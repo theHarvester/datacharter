@@ -1,12 +1,6 @@
 @extends('master.layout')
 
 @section('body')
-<div class="banner">
-    <h1 class="banner-head">
-        DataCharter
-    </h1>
-</div>
-
 <div class="l-content">
     @if(Auth::check())
         <div class="information">
@@ -36,7 +30,7 @@
                     {{ Form::close() }}
                 </div>
             </div>
-            <div class="pure-u-1-4">
+            <!-- <div class="pure-u-1-4">
                 <div class="quickCreate" data-type="category">
                     + Category
                 </div>
@@ -45,7 +39,7 @@
                 <div class="quickCreate" data-type="chart">
                     + Chart
                 </div>
-            </div>       
+            </div>   -->     
         </div>  
         <div class="information">
             @foreach($charts as $chart)
@@ -54,23 +48,40 @@
             @endforeach
         </div>
     @else
+    <div class="information">
         <div class="pure-u-1-2">
             <div class="l-box">
-                <h3 class="information-head">24/7 customer support</h3>
+                <h3 class="information-head">Simple in simple out</h3>
                 <p>
-                    Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Graph simple data against time easily. MyDataCharter allows you to track simple things quickly and easily. With one account you could track your weight, savings and number of sexual encounters on a day to day basis.
                 </p>
             </div>
         </div>
         <div class="pure-u-1-2">
             <div class="l-box">
-                <h3 class="information-head">Cancel your plan anytime</h3>
-                <p>✓
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <h3 class="information-head">Plot once display many</h3>
+                <p>
+                    Chart data against a category and use it in several charts. No need to enter the same data twice like some kind of chump.
                 </p>
             </div>
         </div>
+        <div class="pure-u-1-2">
+            <div class="l-box">
+                <h3 class="information-head">Roll your own</h3>
+                <p>
+                    Install MyDataCharter on your own webserver easily with git and composer. MyDataCharter runs under a simple LAMP stack and the code is open and free.
+                </p>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="l-box">
+                <h3 class="information-head">Automate everything</h3>
+                <p>
+                    cUrl the API and automate the way you store data in your account. You could use a Raspberry Pi to track the temperature of your homebrew and view it easily in MyDataCharter.
+                </p>
+            </div>
+        </div>
+    </div>
     @endif
     <!--</div>-->
 </div>

@@ -2,12 +2,6 @@
 
 @section('body')
 {{HTML::script('js/chart-update.js')}}
-<div class="banner">
-    <h1 class="banner-head">
-        DataCharter
-    </h1>
-</div>
-
 <div class="l-content">
     <div class="information">
         <div class="pure-u-1-2">
