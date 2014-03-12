@@ -15,6 +15,8 @@ class CreateChartsTable extends Migration {
 		Schema::create('charts', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
+			$table->string('unit', 100);
+			$table->string('axis_label', 100);
 			$table->integer('user_id');
 			$table->timestamps();
 		});
